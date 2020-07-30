@@ -1,0 +1,25 @@
+<div class="extraMargin">
+  <div *ngIf="currentUser$ | async">
+    <h3>Current Logged In User: {{ currentUser$ | async }}</h3>
+    <a href="" (click)="logout()">logout</a>
+    <span class="extraMargin">
+      <div class="newPostBtn" (click)="editPost()">New Post</div>
+    </span>
+  </div>
+</div>
+<div class="extraMargin previewGrid" *ngFor="let blog of blogs$ | async">
+  <div class="previewImage"><img [src]="blog.previewImage" /></div>
+  <div>
+    <div>
+      <h3 class="headerText">{{ blog.header }}</h3>
+    </div>
+    <div>
+      <p class="subheaderText">{{ blog.subheader | slice: 0:400 }}...</p>
+    </div>
+    <div>
+      <div *ngIf="currentUser$ | async" class="editBtn centerText" (click)="editPost(blog.uid)">Edit</div>
+      <div *ngIf="blog.isPublished" class="unpublishBtn centerText" (click)="flipPublished(blog)">Unpublish</div>
+      <div *ngIf="!blog.isPublished" class="publishBtn centerText" (click)="flipPublished(blog)">Publish</div>
+    </div>
+  </div>
+</div>

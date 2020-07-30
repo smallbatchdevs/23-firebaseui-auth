@@ -1,0 +1,82 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/mixins";
+@import "../../../../../styles";
+
+.top-components {
+
+  .login-links {
+    display: flex;
+    a {
+      margin-right: 1em;
+    }
+  }
+
+  .newPostBtn {
+    color: $yellow-100;
+    background-color: $main-yellow;
+    border: solid 1px $yellow-600;
+    margin-top: 0;
+    margin-bottom:0;
+    @include sbd_btn;
+    @extend .centerText;
+  }
+
+}
+
+.newsletterDiv {
+  padding: 15px;
+  background-color: $gray-200;
+  border-radius: 10px;
+  max-width: 20%;
+
+  .newsletterGrid {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+.readBtn {
+  color: white;
+  background-color: $main-blue;
+  border: solid 1px $secondary-blue;
+  @include sbd_btn;
+  @extend .centerText;
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  grid-gap: 20px;
+  .previewImage {
+    margin-top: 18px;
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .blog-details {
+    width: 67%;
+  }
+
+  .headerText {
+    color: $main-blue;
+  }
+
+  .subheaderText {
+    color: $secondary-blue;
+  }
+
+  .editBtn {
+    color: $gray-900;
+    background-color: $gray-300;
+    border: solid 1px $gray-400;
+    @include sbd_btn;
+    @extend .centerText;
+  }
+}
+
+
+.extraMargin {
+  margin: 50px 25%;
+}

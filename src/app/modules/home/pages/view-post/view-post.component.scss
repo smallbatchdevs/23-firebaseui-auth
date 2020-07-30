@@ -1,0 +1,20 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/mixins";
+@import "../../../../../styles";
+
+.bodyText{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.subheader {
+  width: 70%;
+}
+
+.readBtn {
+  color: white;
+  background-color: $main-blue;
+  border: solid 1px $secondary-blue;
+  @include sbd_btn;
+  @extend .centerText;
+}

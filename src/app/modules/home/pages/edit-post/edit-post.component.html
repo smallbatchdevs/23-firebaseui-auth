@@ -1,0 +1,71 @@
+<div class="error" *ngIf="errorMessage">
+  {{ this.errorMessage }}
+</div>
+<div class="centered" *ngIf="form$ | async as form">
+  <form class="half-width" [formGroup]="form">
+    <div class="centerText">
+      <h1>Header:</h1>
+      <input class="half-width" [ngModel]="form.value.header" type="text" formControlName="header" />
+    </div>
+    <div class="centerText">
+      <h3>Sub Header:</h3>
+      <input class="half-width" [ngModel]="form.value.subheader" type="text" formControlName="subheader" />
+    </div>
+    <div class="centerText">
+      <div>Preview Image Source:</div>
+      <input class="half-width" [ngModel]="form.value.previewImage" type="text" formControlName="previewImage" />
+    </div>
+    <div class="centerText">
+      <div>Pretty Url:</div>
+      <input
+        [attr.disabled]="isExistingPost ? '' : null"
+        class="half-width"
+        [ngModel]="form.value.prettyUrl"
+        type="text"
+        formControlName="prettyUrl"
+      />
+    </div>
+    <div class="centerText">
+      <div>Youtube video URL:</div>
+      <input class="half-width" [ngModel]="form.value.youtubeUrl" type="text" formControlName="youtubeUrl" />
+    </div>
+    <div class="centerText">
+      <div>Author:</div>
+      <select class="half-width" formControlName="author">
+        <option [value]="AUTHOR_ENUM.austin">Austin</option>
+        <option [value]="AUTHOR_ENUM.elliott">Elliott</option>
+      </select>
+    </div>
+    <div>
+      <editor
+        class="centered"
+        formControlName="content"
+        [init]="{
+          base_url: '/tinymce',
+          suffix: '.min',
+          height: 400,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor codesample',
+            'searchreplace visualblocks code fullscreen image imagetools',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          codesample_languages: [
+            { text: 'TypeScript', value: 'typescript' },
+            { text: 'JavaScript', value: 'javascript' },
+            { text: 'CSS', value: 'css' },
+            { text: 'Misc', value: 'markup' }
+          ],
+          toolbar:
+            'undo redo | formatselect | bold italic backcolor | bullist numlist outdent indent | removeformat | image codesample',
+          content_css: '//www.tiny.cloud/css/codepen.min.css'
+        }"
+      ></editor>
+    </div>
+
+    <div class="centerText">
+      <div class="saveButton" (click)="onSubmit(form.value)">Save</div>
+      <div class="greyButton" routerLink="/">Home</div>
+    </div>
+  </form>
+</div>

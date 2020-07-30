@@ -1,0 +1,38 @@
+<div class="extraMargin top-components">
+  <div *ngIf="currentUser$ | async; else notLoggedIn">
+    <h3>Current Logged In User: {{ currentUser$ | async }}</h3>
+    <a href="" (click)="logout()">logout</a>
+    <span class="extraMargin">
+      <div class="newPostBtn" routerLink="/dashboard">Dashboard</div>
+    </span>
+  </div>
+  <ng-template #notLoggedIn>
+    <div class="login-links">
+      <a routerLink="/login">login</a>
+      <a routerLink="/firebaseui-login">firebaseui-login</a>
+    </div>
+  </ng-template>
+</div>
+<div class="extraMargin newsletterDiv">
+  <div class="centerText"><h3>Join our Newsletter!</h3></div>
+  <div class="newsletterGrid">
+    <div><div>First Name</div> <input id="firstName" #firstName type="text"/></div>
+    <div><div>Email</div> <input id="email" #email type="text"/></div>
+  </div>
+  <div class="readBtn" (click)="addContactToDatabase(email.value, firstName.value)">Join!</div>
+</div>
+<div class="extraMargin previewGrid" *ngFor="let blog of publishedBlogs">
+  <div class="previewImage"><img [src]="blog.previewImage" /></div>
+  <div>
+    <div>
+      <h3 class="headerText">{{ blog.header }}</h3>
+    </div>
+    <div>
+      <p class="subheaderText">{{ blog.subheader | slice: 0:400 }}...</p>
+    </div>
+    <div>
+      <div class="readBtn" (click)="readPost(blog.uid)">Read</div>
+      <div *ngIf="currentUser$ | async" class="editBtn centerText" (click)="editPost(blog.uid)">Edit</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/mixins";
+@import "../../../../../styles";
+
+.newPostBtn {
+  color: $yellow-100;
+  background-color: $main-yellow;
+  border: solid 1px $yellow-600;
+  margin-top: 0;
+  margin-bottom:0;
+  @include sbd_btn;
+  @extend .centerText;
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: 33% 67%;
+  grid-gap: 20px;
+  .previewImage {
+    margin-top: 18px;
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .blog-details {
+    width: 67%;
+  }
+
+  .headerText {
+    color: $main-blue;
+  }
+
+  .subheaderText {
+    color: $secondary-blue;
+  }
+
+  .editBtn {
+    color: $gray-900;
+    background-color: $gray-300;
+    border: solid 1px $gray-400;
+    @include sbd_btn;
+    @extend .centerText;
+  }
+
+  .publishBtn {
+    color: $green-800;
+    background-color: $green-300;
+    border: solid 1px $green-400;
+    @include sbd_btn;
+    @extend .centerText;
+  }
+
+  .unpublishBtn {
+    color: $red-800;
+    background-color: $red-300;
+    border: solid 1px $red-400;
+    @include sbd_btn;
+    @extend .centerText;
+  }
+}
+
+
+.extraMargin {
+  margin: 50px 25%;
+}

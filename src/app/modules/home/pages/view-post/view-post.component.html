@@ -1,0 +1,25 @@
+<div *ngIf="post$ | async as post">
+  <div class="centered">
+    <div class="centerText readBtn" routerLink="/">
+      Home
+    </div>
+  </div>
+  <div class="centerText">
+    <h1>{{post.header}}</h1>
+  </div>
+  <div class="centered centerText">
+    <h3 class="subheader">{{post.subheader}}</h3>
+  </div>
+  <div class="centerText">
+    <h5>Written by {{post.author}}</h5>
+  </div>
+  <div class="centerText">
+    <iframe width="560" height="315" [src]="post.youtubeUrl" frameborder="0" allow=" encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="bodyText" [innerHTML]="post.content"></div>
+  <div class="centered">
+    <div class="centerText readBtn" routerLink="/">
+      Home
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/mixins";
+@import "../../../../../styles";
+
+.half-width {
+  width: 70%;
+}
+
+.full-width {
+  width:100%
+}
+
+.saveButton {
+  color: white;
+  background-color: $blue-500;
+  border: solid 1px $blue-600;
+  @include sbd_btn;
+  @extend .centerText;
+}
+
+.greyButton {
+  color: $gray-900;
+  background-color: $gray-300;
+  border: solid 1px $gray-400;
+  @include sbd_btn;
+  @extend .centerText;
+}
+
+.error {
+  color: $red-900;
+  background-color: $red-300;
+  border: solid 1px $red-400;
+}
